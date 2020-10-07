@@ -1,0 +1,59 @@
+<html>
+<head>
+	<style>
+		ul {
+		  padding: 0;
+		  margin: 0;
+		}
+		ul li {
+		  list-style: none;
+		}
+		input[type=text]{
+		  padding: 10px 10px;
+		  display: inline-block;
+		  border: 1px solid #ccc;
+		  border-radius: 4px;
+		  box-sizing: border-box;
+		}
+		button {
+            flex-grow: 1;
+            margin: 0 5px 4px;
+            border-radius: 5px;
+            box-shadow: 0 4px rgba(0, 0, 0, 0.75);
+            border: 0;
+            outline: 0;
+            font-size: 16px;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .more {
+            background-color: #5d5;
+        }
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+		$(function() {
+		  $("#addMore").click(function(e) {
+		    e.preventDefault();
+		    $("#fieldList").append("<li>&nbsp;</li>");
+		    $("#fieldList").append("<input type='text' name='name[]' placeholder='Name' />");
+		    $("#fieldList").append("<label class= 'container'><input type='checkbox' checked='checked' /><input type='checkbox' checked='checked' /><input type='checkbox' checked='checked' /></label>");
+		  });
+		});
+	</script>
+</head>
+<body>
+	<form action="form_sent.php" method="post">
+	  <ul id="fieldList">
+	    <input name="name[]" type="text" placeholder="Name" />
+		<label class="container">
+			<input type="checkbox" checked="checked">
+			<input type="checkbox" checked="checked">
+			<input type="checkbox" checked="checked">
+		</label>
+	  </ul>
+	  <br>
+	  <button id="addMore" class="more">Add more names</button>
+	</form>
+</body>
+</html>
